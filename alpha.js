@@ -2,6 +2,10 @@ NodeList.prototype.toArray=function(){
     return  [].slice.call(this);
 };
 
+Element.prototype.content=function( value ){
+    this.innerHTML = value;
+}
+
 Element.prototype.increaseWidth=function( value ){
     this.style.width = ( parseInt( this.style.width ) + value ).asPixel();
 };
