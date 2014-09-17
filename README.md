@@ -1,7 +1,7 @@
 Basic JS
 =========
 
-Few prototypes i like
+K.I.S.S. prototypes usually useful on my small projects
 
 ### License
 
