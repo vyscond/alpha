@@ -1,4 +1,5 @@
-NodeList.prototype.toArray=function(){
+
+NodeList.prototype.array=function(){
     return  [].slice.call(this);
 };
 
@@ -6,23 +7,7 @@ Element.prototype.content=function( value ){
     this.innerHTML = value;
 }
 
-Element.prototype.increaseWidth=function( value ){
-    this.style.width = ( parseInt( this.style.width ) + value ).asPixel();
-};
-
-Element.prototype.decreaseWidth=function( value ){ 
-    this.style.width = (parseInt( this.style.width ) - value).asPixel();
-};
-
-Element.prototype.increaseHeight=function( value ){
-    this.style.height = ( parseInt(this.style.height) + value ).asPixel();
-};
-
-Element.prototype.decreaseHeight=function( value ){
-    this.style.height = ( parseInt(this.style.height) - value ).asPixel();
-};
-
-Element.prototype.isClass = function( value ){
+Element.prototype.has_class = function( value ){
 
     try
     {
@@ -43,15 +28,15 @@ Element.prototype.isClass = function( value ){
     
 };
 
-Element.prototype.getChilds = function(){
-    return this.childNodes.toArray();
+Element.prototype.get_childs = function(){
+    return this.childNodes.array();
 };
 
-Element.prototype.getChildsByClass = function( value )
+Element.prototype.get_childs_byclass = function( value )
 {
     var result = [];
 
-    this.children.toArray().forEach(
+    this.children.array().forEach(
         
         function( element , index , array )
         {
@@ -70,19 +55,23 @@ Element.prototype.css=function(attribute){
     return window.getComputedStyle( this )[attribute];
 };
 
-Element.prototype.syncStyle=function(attribute){
+Element.prototype.sync_styles=function(attribute){
     return this.style[attribute] = window.getComputedStyle( this )[attribute];
 };
 
-HTMLCollection.prototype.toArray = function(){
+HTMLCollection.prototype.array = function(){
     return  [].slice.call(this);
 }
 
-Number.prototype.asPixel=function(){ 
+Number.prototype.px=function(){ 
     return this.valueOf()+"px";
 };
 
+String.prototype.element=function(){
+    return document.querySelectorAll(this).array();
+}
 
+/*
 String.prototype.toElement=function()
 {
     if( this.charAt(0) === "#")
@@ -98,3 +87,19 @@ String.prototype.toElement=function()
         return document.getElementsByClassName( this );
     }
 };
+*/
+
+alpha_onresize_hooks = [
+    function(){ console.log('onresize_hooks is executing :)') }
+]
+
+window.onresize=function(){
+    alpha_onresize_hooks.forEach(
+        function( element , index , array ){
+            if( Object.prototype.toString.call(element) == "[object Function]" ){
+                console.log('executing: '+element)
+                element();
+            }
+        }
+    )
+}
