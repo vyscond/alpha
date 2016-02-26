@@ -3,11 +3,11 @@ NodeList.prototype.array=function(){
     return  [].slice.call(this);
 };
 
-Element.prototype.set_content=function( value ){
+Element.prototype.content=function( value ){
     this.innerHTML = value;
 }
 
-Element.prototype.set_html=function( value ){
+Element.prototype.html=function( value ){
     this.innerHTML = value;
 }
 
@@ -31,7 +31,8 @@ Element.prototype.get_childs = function(){
     return this.childNodes.array();
 };
 
-Element.prototype.get_childs_byclass = function( value ){
+Element.prototype.get_childs_byclass = function( value )
+{
     var ret = [];
     this.children.array().forEach(
         function( element , index , array ){
@@ -73,10 +74,10 @@ String.prototype.element=function(){
     if (ret.length > 1){
         return ret;
     }
-    else{
-        return ret[0];
+    else if (ret.length == 0){
+        return null;
     }
-    
+    return ret[0];
 }
 
 /*

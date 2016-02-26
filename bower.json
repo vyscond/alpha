@@ -3,7 +3,7 @@
   "main": "dist/alpha.js",
   "version": "0.0.0",
   "homepage": "https://github.com/vyscond/alpha",
-  "description": "k.i.s.s. prototypes",
+  "description": "helpful prototypes",
   "keywords": [
     "js",
     "prototype"
