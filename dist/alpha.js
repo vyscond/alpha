@@ -1,3 +1,6 @@
+Function.prototype.timeout = function(delay){
+    setTimeout(this, delay);
+}
 
 NodeList.prototype.array=function(){
     return  [].slice.call(this);
