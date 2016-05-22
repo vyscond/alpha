@@ -51,7 +51,7 @@ Element.prototype.css=function(attribute){
 };
 
 Element.prototype.sync_styles=function(attribute){
-    return this.style[attribute] = window.getComputedStyle( this )[attribute];
+    return this.style[attribute] = window.getComputedStyle(this)[attribute];
 };
 
 Element.prototype.event=function(event_name, callback){
@@ -67,6 +67,10 @@ Number.prototype.px=function(){
     return this.valueOf()+"px";
 };
 
+Number.prototype.em=function(){ 
+    return this.valueOf()+"em";
+};
+
 Number.prototype.suffix=function(value){ 
     return this.valueOf()+value;
 };
@@ -80,6 +84,10 @@ String.prototype.element=function(){
         return ret[0];
     }
     
+}
+
+String.prototype.dom=function(){
+    return this.element();
 }
 
 /*
