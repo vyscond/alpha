@@ -9,7 +9,7 @@
     "prototype"
   ],
   "authors": [
-    "vyscond"
+    "Ramon Moraes"
   ],
   "license": "MIT",
   "ignore": [
@@ -17,6 +17,7 @@
     "node_modules",
     "bower_components",
     "test",
-    "tests"
+    "tests",
+    "README.md"
   ]
 }
