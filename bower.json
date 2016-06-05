@@ -18,6 +18,9 @@
     "bower_components",
     "test",
     "tests",
+    "src",
+    "Makefile",
+    "LICENSE",
     "README.md"
   ]
 }
