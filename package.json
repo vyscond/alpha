@@ -1,0 +1,40 @@
+{
+  "name": "alpha",
+  "version": "0.0.0",
+  "description": "minimal helpers ",
+  "main": "dist/alpha.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "casperjs": "^1.1.1",
+    "gulp": "^3.9.1",
+    "gulp-casperjs": "0.0.6",
+    "gulp-connect": "^4.0.0",
+    "gulp-eslint": "^2.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglifyjs": "^0.6.2",
+    "gulp-util": "^3.0.7"
+  },
+  "scripts": {
+    "test": "gulp casper"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vyscond/alpha.git"
+  },
+  "keywords": [
+    "vanilla",
+    "prototype",
+    "helpers",
+    "browser"
+  ],
+  "author": "Ramon Moraes",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vyscond/alpha/issues"
+  },
+  "homepage": "https://github.com/vyscond/alpha#readme"
+}
