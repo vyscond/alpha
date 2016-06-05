@@ -1,13 +1,16 @@
+Function.prototype.timeout = function(delay){
+    setTimeout(this, delay);
+}
 
 NodeList.prototype.array=function(){
     return  [].slice.call(this);
 };
 
-Element.prototype.content=function( value ){
+Element.prototype.set_content=function( value ){
     this.innerHTML = value;
 }
 
-Element.prototype.html=function( value ){
+Element.prototype.set_html=function( value ){
     this.innerHTML = value;
 }
 
@@ -31,8 +34,7 @@ Element.prototype.get_childs = function(){
     return this.childNodes.array();
 };
 
-Element.prototype.get_childs_byclass = function( value )
-{
+Element.prototype.get_childs_byclass = function( value ){
     var ret = [];
     this.children.array().forEach(
         function( element , index , array ){
@@ -49,7 +51,7 @@ Element.prototype.css=function(attribute){
 };
 
 Element.prototype.sync_styles=function(attribute){
-    return this.style[attribute] = window.getComputedStyle( this )[attribute];
+    return this.style[attribute] = window.getComputedStyle(this)[attribute];
 };
 
 Element.prototype.event=function(event_name, callback){
@@ -65,6 +67,10 @@ Number.prototype.px=function(){
     return this.valueOf()+"px";
 };
 
+Number.prototype.em=function(){ 
+    return this.valueOf()+"em";
+};
+
 Number.prototype.suffix=function(value){ 
     return this.valueOf()+value;
 };
@@ -74,10 +80,14 @@ String.prototype.element=function(){
     if (ret.length > 1){
         return ret;
     }
-    else if (ret.length == 0){
-        return null;
+    else{
+        return ret[0];
     }
-    return ret[0];
+    
+}
+
+String.prototype.dom=function(){
+    return this.element();
 }
 
 /*
