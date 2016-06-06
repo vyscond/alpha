@@ -9,6 +9,8 @@ casper.then(function() {
   this.echo('First Page: ' + this.getTitle());
   casper.test.begin('Asserting String Prototypes', function(test) {
     test.assertEquals(self.getTitle(), 'AlphaJS | test');
+    test.assertExists('div#myElement');
+    test.assertSelectorHasText('div#myElement', 'Hello World from AlphaJS');
     test.done();
   });
 });

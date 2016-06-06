@@ -7,11 +7,6 @@ var uglify = require('gulp-uglifyjs');
 var eslint = require('gulp-eslint');
 
 gulp.task('default', ['dist'], function() {
-  // place code for your default task here
-  //connect.serverClose();
-});
-
-gulp.task('server_development', function() {
 });
 
 gulp.task('dist', ['uglify', 'casper'], function() {
@@ -28,6 +23,9 @@ gulp.task('uglify', ['lint'], function() {
   var cfg = {
     mangle: true
   };
+  var babel_cfg = {
+    presets: ['es2015']
+  };
   gulp.src('src/alpha.js')
     .pipe(uglify(cfg))
     .pipe(rename('alpha.min.js'))
@@ -36,7 +34,7 @@ gulp.task('uglify', ['lint'], function() {
     .pipe(gulp.dest('dist/'));
 });
 
-gulp.task('casper', ['server_development'], function () {
+gulp.task('casper', function () {
   var server_cfg = {
     root: './tests/examples/.',
     livereload: true
@@ -58,8 +56,9 @@ gulp.task('casper', ['server_development'], function () {
     .on('end', function(){
       connect.serverClose();
       setTimeout(function () {
-        throw new Error('gulp-connect not closing the server correctly.')
-      }, 2000);
+        //throw new Error('gulp-connect not closing the server correctly.')
+        process.exit();
+      }, 1000);
     });
   return ret;
 });

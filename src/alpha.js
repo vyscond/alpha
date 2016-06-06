@@ -1,31 +1,31 @@
-Function.prototype.timeout = function(delay){
-    setTimeout(this, delay);
+Function.prototype.timeout=function(delay){
+  setTimeout(this, delay);
 }
 
 NodeList.prototype.array=function(){
     return  [].slice.call(this);
 };
 
-Element.prototype.set_content=function( value ){
-    this.innerHTML = value;
+Element.prototype.content=function(value){
+  return this.html(value);
 }
 
-Element.prototype.set_html=function( value ){
+Element.prototype.html=function(value){
+  if(value !== undefined){
     this.innerHTML = value;
+  }
+  return this.innerHTML;
 }
 
 Element.prototype.has_class = function( value ){
-    try
-    {
-        return this.attributes.class.value.split(" ").some(
-            function(class_name , index , class_name_list){
-                return class_name == value;
-            }
-        );
-    }
-    catch( err )
-    {
-        console.log("[element has not a single class defined]");
+    try{
+      return this.attributes.class.value.split(" ").some(
+          function(class_name , index , class_name_list){
+              return class_name == value;
+          }
+      );
+    } catch(err){
+        console.error("[element has not a single class defined]");
         return false;
     }
 };
@@ -37,11 +37,11 @@ Element.prototype.get_childs = function(){
 Element.prototype.get_childs_byclass = function( value ){
     var ret = [];
     this.children.array().forEach(
-        function( element , index , array ){
-            if( element.isClass( value ) ){
-                ret.push( element );
-            }
+      function( element , index , array ){
+        if( element.isClass( value ) ){
+          ret.push( element );
         }
+      }
     );
     return ret;
 };

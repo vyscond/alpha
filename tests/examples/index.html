@@ -3,9 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <title>AlphaJS | test</title>
-  <script src="../dist/alpha.min.js"></script>
+  <script src="/dist/alpha.min.js"></script>
 </head>
 <body>
   <div id="myElement">Hello World from AlphaJS</div>
+  <script>
+    var myElement = '#myElement'.dom();
+    myElement.set_html('Hello Again');
+  </script>
 </body>
 </html>

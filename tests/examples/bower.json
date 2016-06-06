@@ -1,0 +1,10 @@
+{
+  "name": "alpha - testing end-to-end",
+  "description": "testing alpha library",
+  "dependencies": {
+    "alpha": "../..#0.0.0"
+  },
+  "resolutions": {
+    "alpha": "0.0.0"
+  }
+}
