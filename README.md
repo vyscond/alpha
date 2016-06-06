@@ -1,4 +1,4 @@
-Aplha
+Alpha
 =====
 
 tiny set of prototypes helpers
